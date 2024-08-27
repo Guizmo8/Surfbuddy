@@ -1,8 +1,17 @@
 <div class ="show-container">
-  <div class="video">
-  <video autoplay loop muted playsinline>
-    <source src="https://videos.pexels.com/video-files/2867832/2867832-uhd_2560_1440_25fps.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+  <div class="row">
+    <div class="col-6">
+      <div class="p-3"><h5><strong><%= @surfspot.name %></strong></h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary"><%= @surfspot.address %></h6>
+      </div>
+    </div>
+    <div class="col-6 ">
+      <div class="p-3 d-flex justify-content-end"><button type="button" class="btn btn-primary">Follow</button>
+      <button type="button" class="btn btn-primary"><i class="fa-solid fa-bell"></i></button>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-center mx-auto p-2 border-top border-bottom">
+      <%= image_tag @surfspot.photo, class: "rounded-3" %>
+    </div>
+  </div>
 </div>
