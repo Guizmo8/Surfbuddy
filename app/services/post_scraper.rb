@@ -14,7 +14,7 @@ class PostScraper
 
       # Create a post associated with the current spot
       surf_spot.posts.create(
-        wave_height: info_hash['Período das ondas'],
+        wave_period: info_hash['Período das ondas'],
         wave_direction: info_hash['Direção das ondas'],
         wind: info_hash['Vento'],
         wind_direction: info_hash['Direção do vento'],
