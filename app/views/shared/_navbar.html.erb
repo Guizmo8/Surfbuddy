@@ -1,27 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border">
 
-
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <%= image_tag current_user.photo class:"avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
-      </ul>
-    </div>
+  <div class="d-flex align-items-center">
+    <%= image_tag current_user.photo, class:"avatar" %>
+        <div>
+        <div class="mx-1" > Hi <%= current_user.first_name.capitalize %> 🏄🏻‍♂️ </div>
+          <span class="level"> <%= current_user.surf_level.capitalize %> </span>
+        </div>
   </div>
-</div>
+
+    <div class="d-flex align-items-center">
+
+    <div class="mx-4">
+      <%= link_to root_path, style:"cursor: pointer; margin-bottom: 10px; font-size: 2em" do %>
+        <i class="fa-solid fa-bell"></i>
+        <% end %>
+    </div>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
+          </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+    </div>
+    
+  </div>
