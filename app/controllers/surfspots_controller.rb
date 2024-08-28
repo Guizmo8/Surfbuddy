@@ -3,4 +3,8 @@ class SurfspotsController < ApplicationController
     @surfspots = Surfspot.all
   end
 
+  def show
+    @surfspot = Surfspot.find(params[:id])
+  end
+
 end

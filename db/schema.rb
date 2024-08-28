@@ -63,15 +63,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_152937) do
 
   create_table "posts", force: :cascade do |t|
     t.bigint "surfspot_id", null: false
-    t.text "description"
-    t.datetime "post_time"
-    t.float "wave_height"
+    t.string "wave_height"
+    t.string "wave_direction"
+    t.string "wind"
     t.string "wind_direction"
-    t.float "wave_period"
-    t.float "number_of_waves_per_minute"
-    t.float "wave_max_length"
-    t.float "wave_average_length"
-    t.float "number_of_rideable_waves_per_minute"
+    t.string "ripple"
+    t.string "sea_temperature"
+    t.string "tide"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["surfspot_id"], name: "index_posts_on_surfspot_id"
@@ -79,9 +77,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_152937) do
 
   create_table "surfspots", force: :cascade do |t|
     t.string "name"
-    t.string "address"
-    t.string "break_type"
-    t.string "photo"
+    t.string "location"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
