@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :surfspots, only: %i[index show] do
     resources :favourites, only: %i[create destroy]
+    resources :alerts, only: %i[create]
   end
 end
