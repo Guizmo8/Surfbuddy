@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_105612) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_28_100503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_105612) do
 
   create_table "posts", force: :cascade do |t|
     t.bigint "surfspot_id", null: false
-    t.string "wave_height"
+    t.string "wave_period"
     t.string "wave_direction"
     t.string "wind"
     t.string "wind_direction"
