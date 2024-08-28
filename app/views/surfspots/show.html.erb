@@ -7,6 +7,17 @@
     </div>
     <div class="col-6 ">
       <div class="p-3 d-flex justify-content-end">
+        <% if @user.favourites.where(surfspot_id: @surfspot).empty? %>
+          <%= button_to 'Follow',
+          surfspot_favourites_path(@surfspot),
+          method: :post,
+          class: 'button' %>
+        <% else %>
+          <%= button_to 'Unfollow',
+          surfspot_favourite_path(@surfspot),
+          method: :delete,
+          class: 'button-secondary' %>
+        <% end %>
 
         <% if @user.favourites.where(surfspot_id: @surfspot).empty? %>
           <%= button_to 'Follow',
@@ -25,6 +36,11 @@
     </div>
     <div class="col-6 d-flex justify-content-center mx-auto p-2 border-top border-bottom">
       <%= image_tag @surfspot.image_url, class: "rounded-3" %>
+    </div>
+  </div>
+  <div class="row justify-content-center m-2">
+    <div class="col-12">
+      <%= render "shared/post" %>
     </div>
   </div>
 </div>

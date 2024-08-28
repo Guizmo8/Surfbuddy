@@ -1,0 +1,65 @@
+<div class="card mb-3" style="max-width: 540px;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+  <div class="col-md-8">
+    <% @surfspot.posts.each do |post| %>
+    <div class="card-body">
+        <h5 class="card-title">Wave</h5>
+      <p class="card-text"><%= post.wave_period %> <%= post.wave_direction %> <%= post.ripple %></p>
+      <p class="card-text"><small class="text-body-secondary"><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></small></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Wave</h5>
+                <p class="card-text"><%= post.wave_period %> <%= post.wave_direction %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Wind</h5>
+                <p class="card-text"><%= post.wind %> <%= post.wind_direction %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Ripple</h5>
+                <p class="card-text"><%= post.ripple %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sea Temperature</h5>
+                <p class="card-text"><%= post.sea_temperature %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Tide</h5>
+                <p class="card-text"><%= post.tide %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
