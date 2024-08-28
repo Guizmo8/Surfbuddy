@@ -1,31 +1,23 @@
 .avatar {
-  width: 40px;               /* Set a fixed width */
-  height: 40px;              /* Set height equal to width */
-  border-radius: 50%;        /* Make the image circular */
-  object-fit: cover;
+  width: 40px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 56px;
-  height: 56px;              /* Set height equal to width */
   border-radius: 50%;
-  object-fit: cover;         /* Ensure the image covers the avatar container without distortion */
 }
 
 .avatar-bordered {
   width: 40px;
-  height: 40px;              /* Set height equal to width */
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
-  object-fit: cover;         /* Ensure the image covers the avatar container without distortion */
 }
 
 .avatar-square {
-  width: 500px;
-  height: 500px;             /* Set height equal to width */
-  border-radius: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
-  object-fit: cover;         /* Ensure the image covers the avatar container without distortion */
 }
