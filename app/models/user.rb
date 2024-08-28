@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :favourites, dependent: :destroy
   has_many :alerts, dependent: :destroy
-  has_many :surf_spots, through: :favourites
+  has_many :surf_spots, through: :favourites, dependent: :destroy
 end
