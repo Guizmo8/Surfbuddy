@@ -1,4 +1,4 @@
 class Alert < ApplicationRecord
   belongs_to :user
-  belongs_to :favourites
+  belongs_to :favourite
 end
