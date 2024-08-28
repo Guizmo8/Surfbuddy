@@ -1,4 +1,4 @@
-<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border">
+<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border z-3">
   <% if current_user %>
     <div class="d-flex align-items-center">
       <%= image_tag current_user.photo, class:"avatar"%>
@@ -23,7 +23,7 @@
         <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
       </div>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><%= link_to "My favourite spots", favourites_path, class: "dropdown-item" %></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
