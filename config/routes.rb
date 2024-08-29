@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :surfspots, only: %i[index show] do
     resources :favourites, only: %i[create destroy]
+    patch "/change_fav_alert_pref", to: "favourites#change_fav_alert_pref"
   end
   resources :favourites, only: %i[index]
 end

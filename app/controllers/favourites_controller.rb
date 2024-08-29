@@ -13,6 +13,14 @@ class FavouritesController < ApplicationController
     end
   end
 
+  def change_fav_alert_pref
+    @surfspot = Surfspot.find(params[:surfspot_id])
+    @user = current_user
+    @favourite = Favourite.find_by(user: @user, surfspot: @surfspot)
+    @favourite.set_alert # this method is defined in the fav model
+    redirect_to surfspot_path(@surfspot)
+  end
+
   def destroy
     @surfspot = Surfspot.find(params[:surfspot_id])
     @favourite = Favourite.where(user: current_user).where(surfspot: @surfspot).first
