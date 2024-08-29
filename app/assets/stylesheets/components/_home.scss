@@ -1,0 +1,79 @@
+.beach-title {
+  font-style: poppins;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.brasil-title {
+  font-style: poppins;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0; /* Remove any default margin above the title */
+  margin-bottom: 20px; /* Adds space below the title */
+}
+
+.surfspot-container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents line break within the container */
+  justify-content: center;
+  max-width: 100%;
+  display: flex;
+}
+
+.surfspot-container .d-flex {
+  flex-wrap: nowrap; /* Ensures items stay on a single line */
+
+}
+
+.card {
+  display: inline-block; /* Ensures cards are displayed inline */
+  min-width: 250px; /* Sets a minimum width for the cards */
+  margin-right: 20px; /* Adds spacing between cards */
+}
+
+.surfspot-wrapper {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center content horizontally */
+  padding: 10px 0; /* Optional: add some vertical padding */
+  margin-right: 15px; /* Adds space between cards */
+}
+
+.card-wrapper {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center; /* Center cards horizontally */
+  width: 100%; /* Ensures the wrapper takes full width of the container */
+}
+
+.position-relative {
+  position: relative; /* Position the parent container relative to position children absolutely */
+}
+
+.text-overlay {
+  position: absolute; /* Position the text overlay absolutely within the relative container */
+  bottom: 10px; /* Adjust the text position as needed */
+  left: 10px; /* Adjust the text position as needed */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Optional: add some padding around the text */
+  border-radius: 5px; /* Optional: add rounded corners to the background */
+  font-weight: bold;
+}
+
+.text-white {
+  color: white; /* Ensures text color is white */
+  font-style: poppins;
+  font-size: 28px;
+}
+
+.d-flex {
+  display: flex; /* Ensures the flex container for cards */
+  flex-wrap: nowrap; /* Prevents wrapping to a new line */
+}
+
+.brasil-wrapper {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center content horizontally */
+  padding: 10px 0; /* Optional: add some vertical padding */
+  display: inline-block; /* Ensures cards are displayed inline */
+  margin-right: 15px; /* Adds space between cards */
+}

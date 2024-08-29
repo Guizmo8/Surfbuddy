@@ -1,14 +1,98 @@
  <div class="container">
   <%= render "shared/searchform" %>
 
-
-<div class="card mt-3 mx-auto">
-    <img src="<%= @surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= @surfspot.name %>'s photo">
-    <div class="card-body">
-        <p class= "m-0" style="color: #00808B; font-size: 0.875em"> 15 min ago </p>
-        <h5 class="card-title mt-0"><%= @surfspot.name %></h5>
-      <p class="card-text"><small class="text-body-secondary"><%= @surfspot.location[0] %><%= @surfspot.location[1..-1].downcase %></small></p>
+    <div class="surfspot-wrapper">
+    <div class="card mt-3 mx-auto" class="justify-content: center;">
+        <img src="<%= @surfspot1.image_url %>" class="card-img-top custom-card-img" alt="<%= @surfspot1.name %>'s photo">
+        <div class="card-body">
+            <p class= "m-0" style="color: #00808B; font-size: 0.875em"> 15 min ago </p>
+            <h5 class="beach-title mt-0"> <%= @surfspot1.name %></h5>
+          <p class="card-text" style="margin-bottom: 10px"><small class="text-body-secondary"><%= @surfspot1.location[0] %><%= @surfspot1.location[1..-1].downcase %></small></p>
+          <div class="button" style="width: 35%; text-align: center; margin: 0px"> Check feed! </div>
+        </div>
     </div>
+    </div>
+
+
+  <hr>
+
+  <div>
+    <div class="d-flex justify-content-between align-items-end">
+      <div>  <h5 class="beach-title mt-0"> Your spots</h5> </div>
+      <div> <p style="color: #00808B; font-size: 0.875em; text-decoration: underline" > view all </p> </div>
+    </div>
+
+  <%# Surfspots scrolling %>
+
+      <div class="surfspot-container">
+        <div class="d-flex flex-nowrap">
+          <% @surfspots_favourites.each do |favourite| %>
+            <div class="card mt-3">
+              <img src="<%= favourite.surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
+              <div class="card-body pb-1">
+                <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
+                <h5 class="mt-0"><%= favourite.surfspot.name %></h5>
+                <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
+                <p class="mb-0" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level"> <%= current_user.surf_level.capitalize %> </span> surfer </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+
+  <%# Live conditons %>
+
+    <div class="d-flex justify-content-between align-items-end">
+      <div>  <h5 class="beach-title" style="margin: 25px 0px "> Live conditions</h5> </div>
+      <div> <p style="color: #00808B; font-size: 0.875em; text-decoration: underline" > view all </p> </div>
+    </div>
+
+
+      <div class="card-wrapper">
+        <% @posts.each do |post| %>
+          <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Wave</h5>
+                  <p class="card-text"><%= post.wave_period %> <%= post.wave_direction %> <%= post.ripple %></p>
+                  <p class="card-text"><small class="text-body-secondary"><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></small></p>
+                </div>
+          </div>
+      <% end %>
+      </div>
 </div>
 
-</div>
+     <%# World locations%>
+
+         <div style="background-color: #BEDFDC; margin-bottom: 25px; padding-top: 20px; padding-bottom: 20px;">
+            <div style="margin: 25px 25px;">
+              <h5 class="brasil-title" style="margin-top: 0;">Hello from Brasil 🌎</h5>
+
+                  <!-- Surfspot container for horizontal scrolling -->
+                  <div class="brasil-container">
+                    <div class="d-flex flex-nowrap">
+
+                      <!-- First Card -->
+                      <div class="card-wrapper">
+                        <div class="card mt-1 position-relative">
+                          <img src="https://images.unsplash.com/photo-1716859497120-66b09f840064?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top custom-card-img">
+                          <div class="text-overlay">
+                            <h5 class="text-white">Itacaré</h5>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Second Card -->
+                      <div class="card-wrapper">
+                        <div class="card mt-1 position-relative">
+                          <img src="https://images.unsplash.com/photo-1476574898132-040f50db0a01?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top custom-card-img">
+                          <div class="text-overlay">
+                            <h5 class="text-white">Pipa Grande</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
