@@ -1,5 +1,6 @@
-<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border z-3">
-  <% if current_user %>
+
+<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border">
+  <% if user_signed_in? %>
     <div class="d-flex align-items-center">
       <%= image_tag current_user.photo, class:"avatar"%>
       <div>
@@ -7,27 +8,31 @@
         <span class="level"> <%= current_user.surf_level.capitalize %> </span>
       </div>
     </div>
-  <% else %>
-    <div></div>
-  <% end %>
 
-  <div class="d-flex align-items-center">
-    <div class="mx-4">
-      <%= link_to root_path, style:"cursor: pointer; margin-bottom: 10px; font-size: 2em" do %>
-        <i class="fa-solid fa-bell"></i>
-      <% end %>
-    </div>
-
-    <div class="nav-item dropdown">
-      <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
+    <div class="d-flex align-items-center">
+      <div class="mx-4">
+        <%= link_to root_path, style:"cursor: pointer; margin-bottom: 10px; font-size: 2em" do %>
+          <i class="fa-solid fa-bell"></i>
+        <% end %>
       </div>
-      <ul class="dropdown-menu">
-        <li><%= link_to "My favourite spots", favourites_path, class: "dropdown-item" %></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
-      </ul>
+
+      <div class="nav-item dropdown">
+        <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+        </ul>
+      </div>
+      
     </div>
-  </div>
+  <% else %>
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <%= image_tag "SurfBuddy_logo.png" %>
+      <%= link_to "Sign in", new_user_session_path, class: "button" %>
+    </div>
+  <% end %>
 </div>
