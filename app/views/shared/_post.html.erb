@@ -1,28 +1,37 @@
-<div class="card mb-3" style="max-width: 540px;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-  <div class="col-md-8">
-    <% @surfspot.posts.each do |post| %>
-    <div class="card-body">
-        <h5 class="card-title">Wave</h5>
-      <p class="card-text"><%= post.wave_period %> <%= post.wave_direction %> <%= post.ripple %></p>
-      <p class="card-text"><small class="text-body-secondary"><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></small></p>
-    </div>
+<div class="card mb-3 ps-4"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+  <% @surfspot.posts.each do |post| %>
+  <div class="card-body border-start border-4">
+    <h5 class="card-title">Wave</h5>
+    <p class="card-text">
+      Period <%= post.wave_period %> <%= post.wave_direction %> <%= post.ripple %></p>
+  </div>
+  <div class="card-body">
+    <p class="card-text d-flex justify-content-end"><small class="text-body-secondary">Date: <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></small></p>
   </div>
 </div>
 
 
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+<div class="offcanvas offcanvas-bottom offcanvas-size-xl" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header my-2">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Detailed conditions</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body small">
-    <div class="container mt-5">
+    <div class="container mt-1">
       <div class="row">
           <div class="col-12 col-sm-6 col-md-4 mb-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Wave</h5>
-                <p class="card-text"><%= post.wave_period %> <%= post.wave_direction %></p>
+                <h5 class="card-title">Wave Period</h5>
+                <p class="card-text"><%= post.wave_period %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Wave Direction</h5>
+                <p class="card-text"><%= post.wave_direction %></p>
               </div>
             </div>
           </div>
@@ -30,7 +39,15 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Wind</h5>
-                <p class="card-text"><%= post.wind %> <%= post.wind_direction %></p>
+                <p class="card-text"><%= post.wind %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Wind Direction</h5>
+                <p class="card-text"><%= post.wind_direction %></p>
               </div>
             </div>
           </div>

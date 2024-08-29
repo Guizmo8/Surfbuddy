@@ -1,0 +1,38 @@
+.img-responsive {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+.border-start {
+  border-color: $blue !important;
+}
+
+@media (min-width: 576px) {
+  .img-responsive {
+      width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-responsive {
+      width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .img-responsive {
+      width: 60
+  }
+}
+
+@media (min-width: 1200px) {
+  .img-responsive {
+      width: 50
+  }
+}
+
+.offcanvas-size-xl {
+  --#{$prefix}offcanvas-height: min(95vw, 700px) !important;
+}
