@@ -1,25 +1,5 @@
-<% @surfspots.each do |spot| %>
-
-  <div class="card mt-3 mx-auto" style="width: 18rem;">
-    <%= link_to surfspot_path(spot) do %>
-      <img src="<%= spot.image_url %>" class="card-img-top custom-card-img" alt="<%= spot.name %>'s photo">
-    <% end %>
-    <div class="card-body">
-      <%= link_to surfspot_path(spot) do %>
-        <h5 class="card-title"><%= spot.name %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <% end %>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><em><%= spot.location %></em></li>
-      <li class="list-group-item">Type of Spot</li>
-      <li class="list-group-item">Type of sea floor</li>
-      <li class="list-group-item">Level</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="button">Follow</a>
-      <a href="#" class="button">Alert me</a>
-    </div>
-  </div>
-
-<% end %>
+<div class="container px-4">
+  <% @surfspots.each do |spot| %>
+    <%= render 'surfspot', spot: spot %>
+  <% end %>
+</div>

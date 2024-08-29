@@ -1,0 +1,7 @@
+<div class="container px-4">
+  <h2 class="text-center pt-5 pb-4">MY FAVOURITE SPOTS</h2>
+
+  <% @favourites.each do |fav| %>
+    <%= render 'surfspots/surfspot', spot: fav.surfspot %>
+  <% end %>
+</div>
