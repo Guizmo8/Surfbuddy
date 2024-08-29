@@ -1,5 +1,5 @@
 
-<div class="navbar-surfbuddy d-flex align-items-center justify-content-between border">
+<div class="d-flex align-items-center justify-content-between border z-3 py-3 px-1 sticky-top bg-white">
   <% if user_signed_in? %>
     <div class="d-flex align-items-center">
       <%= image_tag current_user.photo, class:"avatar"%>
@@ -17,17 +17,17 @@
       </div>
 
       <div class="nav-item dropdown">
-        <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
         </div>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><%= link_to "My spots", favourites_path, class: "dropdown-item" %></li>
           <li><a class="dropdown-item" href="#">Another action</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
         </ul>
       </div>
-      
+
     </div>
   <% else %>
     <div class="d-flex align-items-center justify-content-between w-100">
