@@ -1,24 +1,8 @@
-.navbar-surfbuddy {
-  height: 60px;
-  justify-content: space-between;
-  background: $light-gray;
-  position: sticky;
-  border-bottom: 1px solid white;
-  margin-bottom: 10px;
-}
-
 .level {
   background-color: $light-blue ;
   color: $blue;
   padding: 3px 10px;
   border-radius: 30px;
   font-weight: lighter;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  font-size: small;
 }
