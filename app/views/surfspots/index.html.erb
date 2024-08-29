@@ -1,5 +1,4 @@
 <% @surfspots.each do |spot| %>
-
   <div class="card mt-3 mx-auto" style="width: 18rem;">
     <%= link_to surfspot_path(spot) do %>
       <img src="<%= spot.image_url %>" class="card-img-top custom-card-img" alt="<%= spot.name %>'s photo">

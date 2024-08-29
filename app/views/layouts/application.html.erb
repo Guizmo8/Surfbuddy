@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <% unless params[:controller] == "pages" || params[:controller].include?("devise") %>
       <%= render "shared/navbar" %>
-    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
