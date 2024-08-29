@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     patch "/change_fav_alert_pref", to: "favourites#change_fav_alert_pref"
   end
   resources :favourites, only: %i[index]
+  resources :alerts, only: %i[index]
 end

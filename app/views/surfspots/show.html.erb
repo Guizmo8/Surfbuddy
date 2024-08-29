@@ -19,7 +19,7 @@
           class: 'button-secondary' %>
         <% end %>
 
-        <% if @user.favourites.where(surfspot_id: @surfspot).first %> <%# se for favourite %>
+        <% if @user.favourites.where(surfspot_id: @surfspot).first %> <%# if its a favourite %>
           <% if @user.favourites.where(surfspot_id: @surfspot).first.alert == true %>
             <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button text-nowrap' do %>
             <i class="fa-solid fa-bell "></i> <small>ON</small>
