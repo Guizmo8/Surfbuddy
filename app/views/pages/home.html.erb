@@ -25,7 +25,7 @@
   <%# Surfspots scrolling %>
 
       <div class="surfspot-container">
-        <div class="d-flex flex-nowrap">
+        <div class="d-flex overflow-scroll">
           <% @surfspots_favourites.each do |favourite| %>
             <div class="card mt-3">
               <img src="<%= favourite.surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
@@ -70,7 +70,7 @@
 
                   <!-- Surfspot container for horizontal scrolling -->
                   <div class="brasil-container">
-                    <div class="d-flex flex-nowrap">
+                    <div class="d-flex overflow-scroll">
 
                       <!-- First Card -->
                       <div class="card-wrapper">

@@ -16,7 +16,7 @@
   overflow-x: auto; /* Enables horizontal scrolling */
   white-space: nowrap; /* Prevents line break within the container */
   justify-content: center;
-  max-width: 100%;
+  // max-width: 100%;
   display: flex;
 }
 
@@ -35,7 +35,7 @@
   display: flex; /* Use flexbox for alignment */
   justify-content: center; /* Center content horizontally */
   padding: 10px 0; /* Optional: add some vertical padding */
-  margin-right: 15px; /* Adds space between cards */
+  margin-right: 0px; /* Adds space between cards */
 }
 
 .card-wrapper {
