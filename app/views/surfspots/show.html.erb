@@ -18,19 +18,6 @@
           method: :delete,
           class: 'button-secondary' %>
         <% end %>
-
-        <% if @user.favourites.where(surfspot_id: @surfspot).empty? %>
-          <%= button_to 'Follow',
-          surfspot_favourites_path(@surfspot),
-          method: :post,
-          class: 'button' %>
-        <% else %>
-          <%= button_to 'Unfollow',
-          surfspot_favourite_path(@surfspot),
-          method: :delete,
-          class: 'button-secondary' %>
-        <% end %>
-
         <a href="#" class="button"><i class="fa-solid fa-bell"></i></a>
       </div>
     </div>
