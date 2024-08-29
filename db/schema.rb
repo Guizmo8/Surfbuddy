@@ -44,10 +44,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_111241) do
 
   create_table "alerts", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "favourites_id", null: false
+    t.bigint "favourite_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favourites_id"], name: "index_alerts_on_favourites_id"
+    t.index ["favourite_id"], name: "index_alerts_on_favourite_id"
     t.index ["user_id"], name: "index_alerts_on_user_id"
   end
 
@@ -102,7 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_111241) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "alerts", "favourites", column: "favourites_id"
+  add_foreign_key "alerts", "favourites"
   add_foreign_key "alerts", "users"
   add_foreign_key "favourites", "surfspots"
   add_foreign_key "favourites", "users"

@@ -11,5 +11,4 @@ class SurfspotsController < ApplicationController
     @surfspot = Surfspot.find(params[:id])
     @posts = @surfspot.posts
   end
-
 end

@@ -13,12 +13,25 @@
           method: :post,
           class: 'button' %>
         <% else %>
-          <%= button_to 'Unfollow',
+          <%= button_to 'Following',
           surfspot_favourite_path(@surfspot),
           method: :delete,
           class: 'button-secondary' %>
         <% end %>
-        <a href="#" class="button"><i class="fa-solid fa-bell"></i></a>
+
+        <% if @user.favourites.where(surfspot_id: @surfspot).first %> <%# if its a favourite %>
+          <% if @user.favourites.where(surfspot_id: @surfspot).first.alert == true %>
+            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button text-nowrap' do %>
+            <i class="fa-solid fa-bell "></i> <small>ON</small>
+            <% end %>
+          <% else %>
+            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button-secondary text-nowrap' do %>
+              <i class="fa-solid fa-bell"></i> <small>OFF</small>
+            <% end %>
+          <% end %>
+        <% end %>
+
+
       </div>
     </div>
     <div class="separator"></div>
