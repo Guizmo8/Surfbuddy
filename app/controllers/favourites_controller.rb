@@ -1,4 +1,8 @@
 class FavouritesController < ApplicationController
+  def index
+    @favourites = Favourite.all.where(user: current_user)
+  end
+
   def create
     @surfspot = Surfspot.find(params[:surfspot_id])
     @user = current_user

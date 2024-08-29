@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :surfspots, only: %i[index show] do
     resources :favourites, only: %i[create destroy]
   end
+  resources :favourites, only: %i[index]
 end

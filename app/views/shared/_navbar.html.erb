@@ -1,3 +1,4 @@
+
 <div class="navbar-surfbuddy d-flex align-items-center justify-content-between border">
   <% if user_signed_in? %>
     <div class="d-flex align-items-center">
@@ -26,6 +27,7 @@
           <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
         </ul>
       </div>
+      
     </div>
   <% else %>
     <div class="d-flex align-items-center justify-content-between w-100">
