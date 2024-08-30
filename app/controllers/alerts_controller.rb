@@ -3,5 +3,5 @@ class AlertsController < ApplicationController
     @user = current_user
     @alerts = Alert.where(user: @user)
   end
-  
+
 end
