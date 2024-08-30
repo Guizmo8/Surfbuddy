@@ -13,6 +13,14 @@ Rails.application.routes.draw do
     resources :favourites, only: %i[create destroy]
     patch "/change_fav_alert_pref", to: "favourites#change_fav_alert_pref"
   end
+
+  resources :favourites do
+      collection do
+        get :my_feed
+    end
+  end
+
+
   resources :favourites, only: %i[index]
   resources :alerts, only: %i[index]
 end

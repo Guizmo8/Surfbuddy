@@ -27,4 +27,8 @@ class FavouritesController < ApplicationController
     @favourite.destroy
     redirect_to surfspot_path(@surfspot)
   end
+
+  def my_feed
+    @favourites = Favourite.where(user: current_user)
+  end
 end

@@ -1,0 +1,12 @@
+<div class="container px-4">
+  <h2 class="text-center pt-5 pb-4">MY FEED</h2>
+  <div class="row">
+    <% @favourites.each do |favourite| %>
+      <div class="col-12 col-lg-4">
+        <% favourite.surfspot.posts.each do |post| %>
+          <%= render 'posts/post', post: post %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
