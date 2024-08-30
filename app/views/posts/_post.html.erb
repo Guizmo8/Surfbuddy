@@ -1,13 +1,14 @@
 <%# the actual card %>
 <div class="card mb-3 ps-4 w-100"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
   <div class="card-body border-start border-4 py-2">
-    <h5 class="card-title mb-0">At:<%= post.created_at.strftime("%H:%M") %></h5>
+    <h5 class="card-title mb-0"><%= post.created_at.strftime("%H:%M") %></h5>
+    <span class="level"><%= post.surf_level.capitalize %>s </span>
   </div>
   <div class="card-body py-1 px-4">
     <p class="card-text">
       <i class="fa-solid fa-up-right-and-down-left-from-center" style="color: #00808B"></i> <%= post.ripple %>
-      <i class="fa-regular fa-compass" style="color: #00808B"></i> <%= post.wave_direction %>
-      <i class="fa-regular fa-clock" style="color: #00808B"></i> <%= post.wave_period %>
+      <i class="fa-regular fa-compass ms-1" style="color: #00808B"></i> <%= post.wave_direction %>
+      <i class="fa-regular fa-clock ms-1" style="color: #00808B"></i> <%= post.wave_period %>
     </p>
   </div>
 </div>
