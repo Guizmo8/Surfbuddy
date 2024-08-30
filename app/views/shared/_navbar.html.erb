@@ -2,7 +2,9 @@
 <div class="d-flex align-items-center justify-content-between border z-3 py-3 px-1 sticky-top bg-white">
   <% if user_signed_in? %>
     <div class="d-flex align-items-center">
+      <%= link_to root_path do %>
       <%= image_tag current_user.photo, class:"avatar"%>
+      <% end %>
       <div>
         <div class="mx-1" > Hi <%= current_user.first_name.capitalize %> 🏄🏻‍♂️ </div>
         <span class="level"> <%= current_user.surf_level.capitalize %> </span>
@@ -21,6 +23,7 @@
           <i class="fa-solid fa-water" style="background-color: white; padding: 10px; border-radius: 10px; font-size: 2em"></i>
         </div>
         <ul class="dropdown-menu">
+          <li><%= link_to "My feed", my_feed_favourites_path, class: "dropdown-item" %></li>
           <li><%= link_to "Surfspots", surfspots_path, class: "dropdown-item" %></li>
           <li><%= link_to "My Spots", favourites_path, class: "dropdown-item" %></li>
           <li><hr class="dropdown-divider"></li>
@@ -31,7 +34,9 @@
     </div>
   <% else %>
     <div class="d-flex align-items-center justify-content-between w-100">
+      <%= link_to root_path do %>
       <%= image_tag "SurfBuddy_logo.png" %>
+      <% end %>
       <%= link_to "Sign in", new_user_session_path, class: "button" %>
     </div>
   <% end %>
