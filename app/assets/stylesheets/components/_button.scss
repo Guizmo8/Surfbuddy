@@ -1,17 +1,23 @@
-  .button {
-    border-radius: 50px;
-    background-color: #367e89;
-    color: #ffffff;
-    padding: .3rem 1rem;
-    text-decoration: none;
-    border: 0.1rem solid transparent;
-  }
+.button {
+  border-radius: 50px;
+  background-color: #367e89;
+  color: #ffffff;
+  padding: .3rem 1rem;
+  text-decoration: none;
+  border: 0.1rem solid transparent;
+}
 
-  .button-secondary {
-    border-radius: 50px;
-    background-color: rgba(255, 255, 255, 0);
-    color: #367e89;
-    padding: .3rem 1rem;
-    text-decoration: none;
-    border: 0.1rem solid #367e89;
-  }
+.button-secondary {
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #367e89;
+  padding: .3rem 1rem;
+  text-decoration: none;
+  border: 0.1rem solid #367e89;
+}
+
+.minimal-link {
+  color: #00808B;
+  font-size: 0.875em;
+  text-decoration: underline
+}

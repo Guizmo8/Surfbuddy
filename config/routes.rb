@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   end
 
   resources :favourites do
-      collection do
-        get :my_feed
+    collection do
+      get :my_feed
     end
   end
-
 
   resources :favourites, only: %i[index]
   resources :alerts, only: %i[index]
