@@ -2,7 +2,7 @@
   <%= render "shared/searchform" %>
 
   <div class="surfspot-wrapper">
-    <div class="card mt-3 mx-auto" class="justify-content: center;">
+    <div class="card card-your-spots-home mt-3 mx-auto" class="justify-content: center;">
       <img src="<%= @surfspot1.image_url %>" class="card-img-top custom-card-img" alt="<%= @surfspot1.name %>'s photo">
       <div class="card-body">
         <p class= "m-0"> 15 min ago </p>
@@ -26,35 +26,35 @@
       <div class="surfspot-container">
         <div class="d-flex overflow-scroll">
           <% @surfspots_favourites.each do |favourite| %>
-            <div class="card mt-3">
-              <img src="<%= favourite.surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
+            <div class="card card-your-spots-home mt-3">
+              <img src="<%= favourite.surfspot.image_url %>" class="custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
               <div class="card-body pb-1">
                 <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
                 <h5 class="mt-0"><%= favourite.surfspot.name %></h5>
                 <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
-                <p class="mb-0" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level"> <%= current_user.surf_level.capitalize %> </span> surfer </p>
+                <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
               </div>
             </div>
           <% end %>
         </div>
       </div>
-      <% else %>
-        <div class="surfspot-container">
-          <div class="d-flex overflow-scroll">
-            <% @surfspots.each do |surfspot| %>
-              <div class="card card-your-spots-home mt-3">
-                <img src="<%= surfspot.image_url %>" class="custom-card-img" alt="<%= surfspot.name %>'s photo">
-                <div class="card-body pb-1">
-                  <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
-                  <h5 class="mt-0"><%= surfspot.name %></h5>
-                  <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
-                  <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
-                </div>
+    <% else %>
+      <div class="surfspot-container">
+        <div class="d-flex overflow-scroll">
+          <% @surfspots.each do |surfspot| %>
+            <div class="card card-your-spots-home mt-3">
+              <img src="<%= surfspot.image_url %>" class="custom-card-img" alt="<%= surfspot.name %>'s photo">
+              <div class="card-body pb-1">
+                <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
+                <h5 class="mt-0"><%= surfspot.name %></h5>
+                <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
+                <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 
     <%# Live conditons %>
