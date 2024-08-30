@@ -4,6 +4,7 @@ class CreateSurfspots < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :location
       t.string :image_url
+      t.text :description
 
       t.timestamps
     end

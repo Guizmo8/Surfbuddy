@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_29_111241) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_164258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_111241) do
     t.string "tide"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "surf_level"
     t.index ["surfspot_id"], name: "index_posts_on_surfspot_id"
   end
 
@@ -79,6 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_111241) do
     t.string "name"
     t.string "location"
     t.string "image_url"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

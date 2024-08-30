@@ -5,7 +5,6 @@ scraper = SpotScraper.new
 scraper.scrape_and_seed
 puts "created #{Surfspot.all.count} surf spots"
 
-
 # User creation
 User.destroy_all
 user_1 = User.create!(email: "surfer1@example.com", password: "password123", first_name: "Gui", last_name: "Olivier", surf_level: "intermediate", phone_number: "+33665151713", photo: "https://photos.smugmug.com/C/EMPRESAS/LeWagon/n-Pmb29k/20240731-Le-Wagon-mug-shots/i-4BGdwk8/0/MfHX6G6X5XHw4MtPhmGNbXW9DS2r3H7mGDkQWtQpt/X3/240731%20Le%20Wagon_41-X3.jpg")
