@@ -1,6 +1,6 @@
 <%= form_with url: surfspots_path, method: :get, local: true, class: 'd-flex mt-4' do %>
   <%= button_tag(type: 'submit', class: 'btn') do %>
-    <i class="fa-solid fa-magnifying-glass" style="font-size: 2em"></i>
+    <i class="fa-solid fa-magnifying-glass" style="font-size: 2em; color: #00808B;"></i>
   <% end %>
   <%= text_field_tag :query, params[:query], class:"form-control string required rounded-5",placeholder:'Search a spot' %>
 <% end %>
