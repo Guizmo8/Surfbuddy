@@ -1,7 +1,12 @@
 <div class="container px-4">
-  <h2 class="text-center pt-5 pb-4">MY FAVOURITE SPOTS</h2>
 
-  <% @favourites.each do |fav| %>
-    <%= render 'surfspots/surfspot', spot: fav.surfspot %>
+  <% if @favourites.empty? %>
+    <h2 class="text-center pt-5 pb-4"><em>You are not following<br>any spots yet</em></h2>
+  <% else %>
+    <h2 class="text-center pt-5 pb-4">MY FAVOURITE SPOTS</h2>
+    <% @favourites.each do |fav| %>
+      <%= render 'surfspots/surfspot', spot: fav.surfspot %>
+    <% end %>
   <% end %>
+
 </div>

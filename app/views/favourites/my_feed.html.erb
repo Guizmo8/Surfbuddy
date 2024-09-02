@@ -1,12 +1,37 @@
 <div class="container px-4">
-  <h2 class="text-center pt-5 pb-4">MY FEED</h2>
-  <div class="row">
-    <% @favourites.each do |favourite| %>
-      <div class="col-12 col-lg-4">
-        <% favourite.surfspot.posts.each do |post| %>
-          <%= render 'posts/post', post: post %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <% if @favourites.empty? %>
+    <h2 class="text-center pt-5 pb-4"><em>You are not following<br>any spots yet</em></h2>
+  <% else %>
+    <h2 class="text-center pt-5 pb-4">MY FEED</h2>
+    <div class="row">
+      <% @favourites.each do |favourite| %>
+        <div class="col-12 col-lg-4">
+
+            <div class="d-flex">
+
+              <div class="card card-your-spots-home mt-3">
+                <div class="card position-relative">
+                  <%= link_to surfspot_path(favourite.surfspot_id) do %>
+                    <img src="<%= favourite.surfspot.image_url %>" class="custom-card-img">
+                    <div class="text-overlay">
+                      <p class="text-white"><small><%= favourite.surfspot.name %></small></p>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="card-body pb-1">
+                  <h6 class="mt-0 ms-2">Recent conditions:</h6>
+                  <% favourite.surfspot.posts.reverse_each do |post| %>
+                    <%= render 'posts/post', post: post %>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+
+
+          <hr>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

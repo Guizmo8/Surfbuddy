@@ -7,6 +7,7 @@
       <div class="card-body">
         <p class= "m-0"> 15 min ago </p>
         <h5 class="beach-title mt-0"> <%= @surfspot1.name %></h5>
+
         <p class="card-text"><small class="text-body-secondary"><%= @surfspot1.location[0] %><%= @surfspot1.location[1..-1].downcase %></small></p>
         <div class="button text-nowrap w-50 text-center">Check beach!</div>
       </div>
@@ -18,26 +19,34 @@
   <div>
     <div class="d-flex justify-content-between align-items-end">
       <div><h5 class="beach-title mt-0"> Your spots</h5></div>
-      <div><p class="minimal-link">view all</p></div>
+      <%= link_to favourites_path do %>
+        <div><p class="minimal-link">view all</p></div>
+      <% end %>
     </div>
 
   <%# Surfspots scrolling %>
     <% if user_signed_in? %>
-      <div class="surfspot-container">
-        <div class="d-flex overflow-scroll">
-          <% @surfspots_favourites.each do |favourite| %>
-            <div class="card card-your-spots-home mt-3">
-              <img src="<%= favourite.surfspot.image_url %>" class="custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
-              <div class="card-body pb-1">
-                <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
-                <h5 class="mt-0"><%= favourite.surfspot.name %></h5>
-                <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
-                <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
-              </div>
-            </div>
-          <% end %>
+      <% if @surfspots_favourites.empty? %>
+        <span><em>You are not following any spots yet</em></span>
+      <% else %>
+        <div class="surfspot-container">
+          <div class="d-flex overflow-scroll">
+            <% @surfspots_favourites.each do |favourite| %>
+              <%= link_to surfspot_path(favourite.surfspot_id) do %>
+                <div class="card card-your-spots-home mt-3">
+                  <img src="<%= favourite.surfspot.image_url %>" class="custom-card-img" alt="<%= favourite.surfspot.name %>'s photo">
+                  <div class="card-body pb-1">
+                    <p class="m-0" style="color: #00808B; font-size: 0.875em">at: <%= favourite.posts.last.created_at.strftime("%H:%M") %></p>
+                    <h5 class="mt-0"><%= favourite.surfspot.name %></h5>
+                    <p class="mb-0" style="color: #00808B; font-size: 1.875em"> <%= favourite.posts.last.ripple %> </p>
+                    <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level"><%= favourite.posts.last.surf_level %></span> surfer</p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% else %>
       <div class="surfspot-container">
         <div class="d-flex overflow-scroll">
@@ -57,18 +66,20 @@
     <% end %>
   </div>
 
-    <%# Live conditons %>
-    <div class="d-flex justify-content-between align-items-center pt-5 pb-3">
-      <div><h5 class="beach-title m-0"> Live conditions</h5></div>
-      <div><p class="minimal-link m-0">view all</p></div>
-    </div>
+  <hr>
+
+  <%# Live conditons %>
+  <div class="d-flex justify-content-between align-items-center pt-5 pb-3">
+    <div><h5 class="beach-title m-0"> Live conditions</h5></div>
+    <div><p class="minimal-link m-0">view all</p></div>          <%# TODO:Should this link to my_feed?? %>
+  </div>
 
 
-    <div class="py-3">
-      <% @posts.first(3).each do |post| %>
-        <%= render 'posts/post', post: post %>
-      <% end %>
-    </div>
+  <div class="py-3">
+    <% @posts.first(3).each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
 </div>
 
 <%# World locations%>
