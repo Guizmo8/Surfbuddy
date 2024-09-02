@@ -323,7 +323,6 @@ DEPENDENCIES
   capybara
   debug
   devise
-  dotenv
   dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)

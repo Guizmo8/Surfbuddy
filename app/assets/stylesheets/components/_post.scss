@@ -1,7 +1,11 @@
 .offcanvas {
-  background-color: #007f8b;
+  background-color: $light-gray;
 }
 
 .offcanvas-title {
   color: aliceblue;
+}
+
+.offcanvas-header {
+  background-color: $blue;
 }
