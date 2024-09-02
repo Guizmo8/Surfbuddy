@@ -3,21 +3,19 @@
   border-radius: 30px;
   font-weight: lighter;
   font-size: small;
+  color: #F5F8F9;
 }
 
 .level-beginner  {
-  background-color: $light-blue ;
-  color: black;
+  background-color: #8CBC00 ;
 }
 
 .level-intermediate {
-  background-color: rgb(255, 191, 0) ;
-  color: black;
+  background-color: #FFAD00;
 }
 
 .level-expert {
-  background-color: red;
-  color: black;
+  background-color: $blue;
 }
 
 #navbar {
