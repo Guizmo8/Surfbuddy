@@ -1,7 +1,7 @@
 <%# the actual card %>
 <div class="card mb-3 ps-4 w-100"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
   <div class="card-body border-start border-4 py-2">
-    <h5 class="card-title mb-0"><%= post.created_at.strftime("%H:%M") %></h5>
+    <h5 class="card-title mb-0"><%= post.created_at.strftime("%H:%M") %> <%= post.surfspot.name %></h5>
     <span class="level"><%= post.surf_level.capitalize %> </span>
   </div>
   <div class="card-body py-1 px-4">
@@ -15,12 +15,24 @@
 
 <%# bottom offcanvas %>
 <div class="offcanvas offcanvas-bottom offcanvas-size-xl" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-  <div class="offcanvas-header my-2">
-    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Detailed conditions</h5>
+  <div class="offcanvas-header mb-2 mt-0">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel"><%= post.created_at.strftime("%H:%M") %></h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body small">
     <div class="container">
+      <div class="row mb-3 mt-3">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body w-auto">
+              <p class="card-title mb-0"><strong>Summary</strong></p>
+              <p class="card-text">
+                <%= post.content %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row mb-3">
         <div class="col-6">
           <div class="card w-100">
