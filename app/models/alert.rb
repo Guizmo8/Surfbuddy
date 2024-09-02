@@ -4,6 +4,13 @@ class Alert < ApplicationRecord
 
   validate :favourite_must_have_alerts_on
 
+  PHONE_NUMBER = "+16314497230"
+
+  def index
+    @alerts = Alert.all
+    
+  end
+
   private
 
   def favourite_must_have_alerts_on
