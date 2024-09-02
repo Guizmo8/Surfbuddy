@@ -1,10 +1,23 @@
 .level {
-  background-color: $light-blue ;
-  color: $blue;
   padding: 3px 10px;
   border-radius: 30px;
   font-weight: lighter;
   font-size: small;
+}
+
+.level-beginner  {
+  background-color: $light-blue ;
+  color: black;
+}
+
+.level-intermediate {
+  background-color: rgb(255, 191, 0) ;
+  color: black;
+}
+
+.level-expert {
+  background-color: red;
+  color: black;
 }
 
 #navbar {
