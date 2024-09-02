@@ -1,4 +1,5 @@
 <div class="container px-4">
+<%= render "shared/searchform" %>
   <% @surfspots.each do |spot| %>
     <%= render 'surfspot', spot: spot %>
   <% end %>
