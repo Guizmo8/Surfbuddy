@@ -32,8 +32,6 @@
             <% end %>
           <% end %>
         <% end %>
-
-
       </div>
     </div>
     <div class="separator"></div>
@@ -41,13 +39,17 @@
       <%= image_tag @surfspot.image_url, class: "img-fluid img-responsive" %>
     </div>
   </div>
-    <div class="row">
-      <h2 class="pb-4 pt-3 text-center">Live Conditions</h3>
+  <div class="row">
+    <% if @surfspot.posts.empty?  %>
+      <p class="pb-4 pt-3 text-center"><em>Sorry, no available Live Conditions at the moment...</em></p>
+    <% else %>
+      <h2 class="pb-4 pt-3 text-center">Live Conditions</h2>
       <% @surfspot.posts.each do |post|  %>
         <div class="col-12 col-lg-4">
           <%= render "posts/post", post: post %>
         </div>
       <% end %>
-      </div>
+    <% end %>
+  </div>
 </div>
-
+<%= render "shared/footer" %>
