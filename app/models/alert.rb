@@ -18,7 +18,7 @@ class Alert < ApplicationRecord
     client.messages.create(
       from: Alert::PHONE_NUMBER,
       to: self.user.phone_number, # Replace with the user phone number
-      body: "Hello from the message sending feature" # Content of the sms sent = alerts
+      body: "#{self.post.surfspot.name} - #{self.post.content}" # Content of the sms sent = alerts
     )
   end
 
