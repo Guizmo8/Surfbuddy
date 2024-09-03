@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
   resources :favourites, only: %i[index]
   resources :alerts, only: %i[index]
+
 end
