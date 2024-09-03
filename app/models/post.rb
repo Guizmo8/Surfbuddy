@@ -50,7 +50,7 @@ class Post < ApplicationRecord
       # For each instance, we skip the favourites where the post's surf level does not match the user's surf level
       next if favourite.user_surf_level != surf_level
 
-      # skip if favourite.user.wants_alerts_now?
+      next unless favourite.user.wants_alert_now?
 
       # If the surf level matches, we create an alert
       Alert.create!(user: favourite.user, favourite:, post: self)

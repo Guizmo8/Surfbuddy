@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   def wants_alert_now?
     current_time = Time.zone.now.strftime("%H:%M")
+
+    # Return false if either start_time or end_time is nil. The opposite of a falsy value is true
+    return false if !alert_start_time || !alert_end_time
+
     start_time = alert_start_time.strftime("%H:%M")
     end_time = alert_end_time.strftime("%H:%M")
 
