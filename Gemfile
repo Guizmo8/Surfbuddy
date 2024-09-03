@@ -57,6 +57,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'nokogiri'
 gem 'open-uri'
+gem 'csv'
 gem 'twilio-ruby'
 gem 'store_model'
 
