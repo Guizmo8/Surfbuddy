@@ -32,10 +32,10 @@ class Post < ApplicationRecord
     puts ripple
     if ripple <= 1.0
       update!(surf_level: "Beginner")
-    elsif ripple > 2.0
-      update!(surf_level: "Advanced")
     elsif ripple <= 2.0
       update!(surf_level: "Intermediate")
+    else
+      update!(surf_level: "Advanced")
     end
   end
 
