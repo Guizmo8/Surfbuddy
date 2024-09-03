@@ -58,11 +58,14 @@ gem "sassc-rails"
 gem 'nokogiri'
 gem 'open-uri'
 gem 'csv'
+gem 'twilio-ruby'
+gem 'store_model'
 
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+  gem 'byebug'
 end
 
 group :development do

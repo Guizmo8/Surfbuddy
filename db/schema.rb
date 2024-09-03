@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_132432) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_03_112251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,7 +47,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_132432) do
     t.bigint "favourite_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_id", null: false
     t.index ["favourite_id"], name: "index_alerts_on_favourite_id"
+    t.index ["post_id"], name: "index_alerts_on_post_id"
     t.index ["user_id"], name: "index_alerts_on_user_id"
   end
 
@@ -99,6 +101,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_132432) do
     t.string "surf_level"
     t.string "phone_number"
     t.string "photo"
+    t.time "alert_start_time"
+    t.time "alert_end_time"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -106,6 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_132432) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "alerts", "favourites"
+  add_foreign_key "alerts", "posts"
   add_foreign_key "alerts", "users"
   add_foreign_key "favourites", "surfspots"
   add_foreign_key "favourites", "users"
