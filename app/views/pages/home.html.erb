@@ -51,15 +51,17 @@
       <div class="surfspot-container">
         <div class="d-flex overflow-scroll">
           <% @surfspots.each do |surfspot| %>
-            <div class="card card-your-spots-home mt-3">
-              <img src="<%= surfspot.image_url %>" class="custom-card-img" alt="<%= surfspot.name %>'s photo">
-              <div class="card-body pb-1">
-                <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
-                <h5 class="mt-0"><%= surfspot.name %></h5>
-                <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
-                <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
+            <%= link_to surfspot_path(surfspot) do %>
+              <div class="card card-your-spots-home mt-3">
+                <img src="<%= surfspot.image_url %>" class="custom-card-img" alt="<%= surfspot.name %>'s photo">
+                <div class="card-body pb-1">
+                  <p class="m-0" style="color: #00808B; font-size: 0.875em">45 min ago</p>
+                  <h5 class="mt-0"><%= surfspot.name %></h5>
+                  <p class="mb-0" style="color: #00808B; font-size: 1.875em"> 0 - 0.5m </p>
+                  <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level">beginner</span> surfer</p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>

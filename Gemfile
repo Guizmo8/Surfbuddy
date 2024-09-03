@@ -58,6 +58,7 @@ gem "sassc-rails"
 gem 'nokogiri'
 gem 'open-uri'
 gem 'twilio-ruby'
+gem 'store_model'
 
 group :development, :test do
   gem "dotenv-rails"
