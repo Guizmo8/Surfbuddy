@@ -1,9 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :surfspot
+  has_many :alerts
+
+  delegate :favourites, to: :surfspot
 
   validates :ripple, presence: true
 
-  after_create_commit :post_surf_level
+  after_create :post_surf_level
+  after_create :create_alert
 
   def content
     if super.blank?
@@ -39,5 +43,17 @@ class Post < ApplicationRecord
     end
   end
 
+  def create_alert
+    # We grab the favourites with alerts ON that belong to the surfspot of the post that has being created
+    # Then we iterate over it
+    favourites.with_alerts.each do |favourite| # How is is a grabbing each post?
+      # For each instance, we skip the favourites where the post's surf level does not match the user's surf level
+      next if favourite.user_surf_level != surf_level
 
+      # skip if favourite.user.wants_alerts_now?
+
+      # If the surf level matches, we create an alert
+      Alert.create!(user: favourite.user, favourite:, post: self)
+    end
+  end
 end

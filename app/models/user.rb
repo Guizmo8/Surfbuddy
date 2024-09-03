@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :favourites, dependent: :destroy
   has_many :alerts, dependent: :destroy
-  has_many :surf_spots, through: :favourites, dependent: :destroy
+  has_many :surfspots, through: :favourites, dependent: :destroy
 
   def wants_alert_now?
     current_time = Time.zone.now.strftime("%H:%M")
