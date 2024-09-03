@@ -52,20 +52,20 @@
                       class: "form-control rounded-pill" } %>
 
         </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-actions">
+            <%= f.button :submit, "Update", class: "btn btn-outline-light btn-rounded btn-block my-1" %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Update", class: "btn btn-outline-light btn-rounded btn-block my-1 z-depth-0" %>
+          <%= link_to "Back", :back, class: "button-outline-ours" %>
+
         </div>
+        <div> <%= button_to "Cancel my account",
+                            registration_path(resource_name),
+                            data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+                            method: :delete,
+                            class: "btn btn-outline-light my-1" %></div>
       <% end %>
-
-      <div> <%= button_to "Cancel my account",
-                          registration_path(resource_name),
-                          data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
-                          method: :delete,
-                          class: "btn btn-outline-light my-1 z-depth-0" %></div>
-
-      <%= link_to "Back", :back, class: "btn btn-outline-light btn-rounded btn-block my-1 z-depth-0" %>
-
     </div>
   </section>
 </div>
