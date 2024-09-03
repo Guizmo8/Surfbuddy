@@ -1,14 +1,21 @@
 #dp {
   background-color: white;
   color: $blue;
+  width: 48px;
+  height: 48px;
 }
 
 #dp-bell {
   background-color: $blue;
   color: white;
+  width: 24px;
+  height: 28px;
+  margin-block: 10px;
 }
 
 #dp-card {
   background-color: $blue;
   border-radius: 15px;
+  width: 48px;
+  height: 48px;
 }
