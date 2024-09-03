@@ -13,12 +13,14 @@ class Alert < ApplicationRecord
   private
 
   def send_alert
+    return unless user.phone_number == "+33665151713"
+
     client = Twilio::REST::Client.new(ENV.fetch('TWILIO_ACCOUNT_SID'), ENV.fetch('TWILIO_TOKEN'))
 
     client.messages.create(
       from: Alert::PHONE_NUMBER,
-      to: self.user.phone_number, # Replace with the user phone number
-      body: "#{self.post.surfspot.name} - #{self.post.content}" # Content of the sms sent = alerts
+      to: user.phone_number, # Replace with the user phone number
+      body: "#{post.surfspot.name} - #{post.content}" # Content of the sms sent = alerts
     )
   end
 
