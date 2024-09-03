@@ -27,6 +27,7 @@
           <li><%= link_to "Surfspots", surfspots_path, class: "dropdown-item" %></li>
           <li><%= link_to "My Spots", favourites_path, class: "dropdown-item" %></li>
           <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
           <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
         </ul>
       </div>
@@ -41,4 +42,3 @@
     </div>
   <% end %>
 </div>
-
