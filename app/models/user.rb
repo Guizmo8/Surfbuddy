@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :alerts, dependent: :destroy
   has_many :surfspots, through: :favourites, dependent: :destroy
 
+  attr_accessor :confidence_level, :wave_size, :maneuver_skill, :board_type, :ocean_knowledge
+
   def wants_alert_now?
     current_time = Time.zone.now.strftime("%H:%M")
 
