@@ -21,4 +21,11 @@ class User < ApplicationRecord
 
     current_time >= start_time && current_time <= end_time
   end
+
+  def checks_alerts_at
+    
+  end
+
+
+
 end
