@@ -1,7 +1,7 @@
 class PostScraper
   require 'nokogiri'
   require 'open-uri'
-
+  
   def scrape_beachcam_details(surf_spot, beachcam_url)
     html = URI.open(beachcam_url)
     doc = Nokogiri::HTML(html)

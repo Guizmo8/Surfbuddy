@@ -2,7 +2,11 @@
 <div class="d-flex align-items-center justify-content-between border z-3 py-3 px-1 sticky-top" id="navbar">
   <% if user_signed_in? %>
     <div class="d-flex align-items-center">
-
+      <% if !current_user.photo.nil? %>
+        <%= link_to root_path do %>
+          <%= image_tag current_user.photo, class:"avatar"%>
+        <% end %>
+        <% end %>
       <div>
         <div class="mx-1" > Hi <%= current_user.first_name.capitalize %> 🏄🏻‍♂️ </div>
         <span class="level level-<%= current_user.surf_level.downcase %>"> <%= current_user.surf_level.capitalize %> </span>
