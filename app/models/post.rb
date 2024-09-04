@@ -18,25 +18,32 @@ class Post < ApplicationRecord
   end
 
   def set_content
-    client = OpenAI::Client.new
-    chatgpt_response = client.chat(parameters: {
-      model: "gpt-4o",
-      messages: [{ role: "user", content: "In 100 characters or less summarise the surfing conditions considering #{self.surfspot.location} #{tide} #{ripple} #{wave_period} #{wave_direction} #{wind} #{wind_direction} #{sea_temperature} without using numbers, and recommending experience level based on #{self.post_surf_level}"}]
-    })
-    new_content =  chatgpt_response["choices"][0]["message"]["content"]
+    begin
+      client = OpenAI::Client.new
+      chatgpt_response = client.chat(parameters: {
+        model: "gpt-4o",
+        messages: [{ role: "user", content: "In 140 characters or less explain how the following #{self.surfspot.location} #{tide} #{ripple} #{wave_period} #{wave_direction} #{wind} #{wind_direction} #{sea_temperature} conditions shape the surfing experience without using numbers."}]
+      })
 
-    update(content: new_content)
-    return new_content
+      new_content =  chatgpt_response["choices"][0]["message"]["content"]
+      update(content: new_content)
+
+      return new_content
+    rescue Faraday::TooManyRequestsError => e
+      puts e
+    end
   end
 
   def post_surf_level
     ripple_height = self.ripple.chop.to_f
-    wind_speed = self.wind.chop.to_f
+    wind = self.wind.chop.to_f
     wave_period = self.wave_period.chop.to_f
     sea_temp = self.sea_temperature.chop.to_f
-    tide_time = self.tide.strftime('%H%M').to_i
 
-    wind_factor = case wind_speed
+    tide_str = self.tide.gsub('h', '')
+    tide_time = Time.strptime(tide_str, "%H.%M").strftime('%H%M').to_i
+
+    wind_factor = case wind
     when 0..16
       "Beginner"
     when 17..24
@@ -84,9 +91,8 @@ class Post < ApplicationRecord
     end
 
 
-    wind_direction_factor = determine_wind_direction_factor(self.wind_direction, self.wave_direction)
 
-    factors = [wind_factor, ripple_factor, wave_period_factor, sea_temp_factor, tide_factor,  wind_direction_factor]
+    factors = [wind_factor, ripple_factor, wave_period_factor, sea_temp_factor, tide_factor]
 
     level = factors.group_by(&:itself).values.max_by(&:size).first
 
@@ -97,30 +103,6 @@ class Post < ApplicationRecord
 
   private
 
-  def determine_wind_direction_factor(wind_direction, wave_direction)
-    # Simple mapping of directions to angles
-    directions_to_angle = {
-      "North" => 0, "North-east" => 45, "East" => 90, "South-east" => 135,
-      "South" => 180, "South-west" => 225, "West" => 270, "North-west" => 315
-    }
-
-    wind_angle = directions_to_angle[wind_direction]
-    wave_angle = directions_to_angle[wave_direction]
-
-    # Calculate the difference in angles
-    angle_diff = (wind_angle - wave_angle).abs % 360
-    angle_diff = 360 - angle_diff if angle_diff > 180
-
-    # Determine the wind direction factor
-    case angle_diff
-    when 0 # Onshore
-      "Beginner"
-    when 1..90 # Cross-shore
-      "Intermediate"
-    else # Offshore
-      "Advanced"
-    end
-  end
 
   def create_alert
     # We grab the favourites with alerts ON that belong to the surfspot of the post that has being created

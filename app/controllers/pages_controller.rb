@@ -7,6 +7,6 @@ class PagesController < ApplicationController
 
     @surfspots_favourites = Favourite.all.where(user: current_user)
 
-    @posts = Post.all.sample(3)
+    @posts = Post.where(created_at: Time.zone.now.all_day).sample(3)
   end
 end
