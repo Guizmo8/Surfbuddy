@@ -16,9 +16,28 @@
   border: 0.1rem solid #367e89;
 }
 
+.button-outline-ours {
+  border-radius: 50px;
+  border: 0.1rem solid #ffffff;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  padding: .3rem 1rem;
+  text-decoration: none;
+
+}
+
 .minimal-link {
   color: #00808B;
   font-size: 0.875em;
   text-decoration: underline
 }
 
+.button-cancel {
+  color: #FA5F55;
+  transition: background-color 0.5s;
+  text-decoration: none;
+}
+
+.button-cancel:hover {
+  text-decoration: underline;
+}

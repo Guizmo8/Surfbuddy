@@ -1,45 +1,96 @@
-<div class="container d-flex justify-content-center">
-  <section class="mx-auto my-5" style="max-width: 26rem;">
-    <div class="card-form m-0">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="video-background">
+  <video autoplay loop muted playsinline>
+    <source src="https://videos.pexels.com/video-files/4193127/4193127-uhd_2562_1440_24fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
+<div class="container d-flex justify-content-center">
+  <section class="mx-auto my-5" style="max-width: 23rem;">
+    <div class="card-form m-0">
+      <h3 class="font-weight-bold text-center text-uppercase text-white my-4">Edit my details</h3>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
-
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="far fa-envelope fa-lg text-white fa-fw me-3 mb-3"></i>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        label: false,
+                        input_html: {
+                        class: "form-control rounded-pill" } %>
+          </div>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="far fa-user fa-lg text-white fa-fw me-3"></i>
+            <%= f.input :first_name,
+                        label: false,
+                        required: false,
+                        input_html: {
+                        class: "form-control rounded-pill mt-3" } %>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="far fa-user fa-lg text-white fa-fw me-3"></i>
+            <%= f.input :last_name,
+                        label: false,
+                        required: false,
+                        input_html: { autocomplete: "current-last-name",
+                        class: "form-control rounded-pill mt-3" } %>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-phone fa-lg text-white fa-fw me-3"></i>
+            <%= f.input :phone_number,
+                        label: false,
+                        required: false,
+                        input_html: { autocomplete: "current-phone-number",
+                        class: "form-control rounded-pill mt-3" } %>
+          </div>
+          <h3 class="font-weight-bold text-center text-uppercase text-white my-1">surf level</h3>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-person-snowboarding text-white me-3"></i>
+            <%= f.input :surf_level,
+                        label: false,
+                        :collection => %w[Beginner Intermediate Advance],
+                        required: false ,
+                        input_html: {
+                        class: "form-control rounded-pill mt-3" } %>
+          </div>
+          <h3 class="font-weight-bold text-center text-uppercase text-white my-1">alerts</h3>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-regular fa-bell fa-fw text-white "></i>
+            <%= f.input :alert_start_time,
+                        label: false,
+                        required: false,
+                        input_html: {
+                        class: "form-control rounded-pill mt-3" } %>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-regular fa-bell-slash fa-fw text-white "></i>
+            <%= f.input :alert_end_time,
+                        label: false,
+                        required: false,
+                        input_html: {
+                        class: "form-control rounded-pill mt-2" } %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+          <div class="form-actions">
+            <%= f.button :submit, "Update", class: "btn btn-outline-light btn-rounded btn-block my-1" %>
+          </div>
 
-          <%= f.input :first_name,
-                      required: false %>
-          <%= f.input :last_name,
-                      required: false,
-                      input_html: { autocomplete: "current-last-name" } %>
-
-          <%= f.input :phone_number,
-                      required: false,
-                      input_html: { autocomplete: "current-phone-number" } %>
-          <hr>
-          
-          <%= f.input :alert_start_time,
-                      required: false %>
-          <%= f.input :alert_end_time,
-                      required: false %>
-          <hr>
+          <%= link_to "Back", :back, class: "btn btn-outline-light btn-rounded btn-block my-1" %>
 
         </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Update", class: "button" %>
-        </div>
+        <div class="text-center mt-3"> <%= link_to "Delete my account",
+                            registration_path(resource_name),
+                            data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+                            method: :delete,
+                            class: "button-cancel" %></div>
       <% end %>
-
-      <div> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "button-secondary my-1" %></div>
-
-      <%= link_to "Back", :back, class: "button-secondary mb-3 mt-3" %>
     </div>
   </section>
 </div>
