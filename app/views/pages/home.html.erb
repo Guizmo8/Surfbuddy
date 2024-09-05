@@ -1,7 +1,6 @@
  <div class="container">
   <%= render "shared/searchform" %>
-
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.favourites.any? %>
     <div class="surfspot-wrapper">
       <div class="card card-your-spots-home mt-3 mx-auto" class="justify-content: center;">
         <img src="<%= @rand_spot.surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= @rand_spot.surfspot.name %>'s photo">

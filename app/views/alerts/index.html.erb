@@ -7,29 +7,9 @@
     <div class="row">
 
       <% @posts.reverse_each do |post| %>
-
         <div class="col-12 col-lg-4">
-            <div class="d-flex">
-              <div class="card card-your-spots-home mt-3">
-                <div class="card position-relative">
-
-                  <%= link_to surfspot_path(post.surfspot_id) do %>
-                    <img src="<%= post.surfspot.image_url %>" class="custom-card-img">
-                    <div class="text-overlay">
-                      <p class="text-white"><small><%= post.surfspot.name %></small></p>
-                    </div>
-                  <% end %>
-
-                </div>
-                <div class="card-body pb-1">
-                  <h6 class="mt-0 ms-2">Recent conditions:</h6>
-                    <%= render 'posts/post', post: post %>
-                </div>
-              </div>
-
-            </div>
+          <%= render 'posts/alertpost', post: post %>
         </div>
-
       <% end %>
 
 

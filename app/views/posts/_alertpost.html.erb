@@ -1,0 +1,103 @@
+<%# the actual card %>
+<div class="card mb-4 w-100"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<%= post.id %>" aria-controls="offcanvasBottom<%= post.id %>">
+  <div class="card-body border-start border-4 p-1">
+    <div class="d-flex justify-content-between align-items-center row">
+      <div class="col-7 d-flex align-items-center">
+        <%= image_tag post.surfspot.image_url, class:"spot-avatar mb-1 mt-1"%>
+        <h5 class="card-title mb-1 mt-1 ms-2"><strong><%= post.surfspot.name %></strong></h5>
+      </div>
+
+      <div class="col-5">
+        <p class="card-title mb-1 mt-1 ps-2 border-start border-4"><em><%= ((Time.now - post.created_at) / 60).to_i %> mins ago</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# bottom offcanvas %>
+<div class="offcanvas offcanvas-bottom offcanvas-size-xl" tabindex="-1" id="offcanvasBottom<%= post.id %>" aria-labelledby="offcanvasBottom<%= post.id %>Label">
+  <div class="offcanvas-header mb-2 mt-0">
+    <h5 class="offcanvas-title" id="offcanvasBottom<%= post.id %>Label"><%= post.created_at.strftime("%H:%M") %></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    <div class="container">
+      <div class="row mb-3 mt-3">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body w-auto">
+              <p class="card-title mb-0"><strong>Summary</strong></p>
+              <p class="card-text">
+                <%= post.content %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card w-100">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Wave Period</strong></p>
+              <p class="card-text"><%= post.wave_period %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card w-100">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Wave Direction</strong></p>
+              <p class="card-text"><%= post.wave_direction %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Wind</strong></p>
+              <p class="card-text"><%= post.wind %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Wind Direction</strong></p>
+              <p class="card-text"><%= post.wind_direction %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Ripple</strong></p>
+              <p class="card-text"><%= post.ripple %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Sea Temperature</strong></p>
+              <p class="card-text"><%= post.sea_temperature %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <p class="card-title mb-0"><strong>Tide</strong></p>
+              <p class="card-text"><%= post.tide %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
