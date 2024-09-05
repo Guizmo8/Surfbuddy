@@ -8,7 +8,14 @@
       </div>
 
       <div class="col-5">
-        <p class="card-title mb-1 mt-1 ps-2 border-start border-4"><em><%= ((Time.now - post.created_at) / 60).to_i %> mins ago</em></p>
+        <p class="card-title mb-1 mt-1 ps-2 border-start border-4"><em>
+          <%= if (Time.now - post.created_at) < 3600
+                "#{((Time.now - post.created_at) / 60).to_i} minutes ago"
+              elsif (Time.now - post.created_at) < 86400
+                "#{((Time.now - post.created_at) / 3600).to_i} hours ago"
+              else
+                "#{((Time.now - post.created_at) / 86400).to_i} days ago"
+              end %></em></p>
       </div>
     </div>
   </div>
