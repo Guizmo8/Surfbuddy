@@ -2,9 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-
     @rand_spot = Favourite.all.where(user: current_user).sample
-   
+
     @surfspot1 = Surfspot.find_by(name: "Praia de Supertubos")
 
     @surfspots = Surfspot.all.sample(5)
