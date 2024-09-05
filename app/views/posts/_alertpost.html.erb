@@ -43,18 +43,16 @@
       </div>
       <div class="row mb-3">
         <div class="col-6">
-          <div class="card w-100">
+          <div class="card">
             <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Wave Period</strong></p>
-              <p class="card-text"><%= post.wave_period %></p>
+              <%= render "posts/metric", title: "Ripple", metric: post.ripple, icon: "ripple.png" %>
             </div>
           </div>
         </div>
         <div class="col-6">
-          <div class="card w-100">
+          <div class="card">
             <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Wave Direction</strong></p>
-              <p class="card-text"><%= post.wave_direction %></p>
+              <%= render "posts/metric", title: "Direction", metric: post.wave_direction, icon: "wavedirection.png" %>
             </div>
           </div>
         </div>
@@ -63,34 +61,14 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Wind</strong></p>
-              <p class="card-text"><%= post.wind %></p>
+              <%= render "posts/metric", title: "Wave Period", metric: post.wave_period, icon: "waveperiod.png" %>
             </div>
           </div>
         </div>
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Wind Direction</strong></p>
-              <p class="card-text"><%= post.wind_direction %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Ripple</strong></p>
-              <p class="card-text"><%= post.ripple %></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Sea Temperature</strong></p>
-              <p class="card-text"><%= post.sea_temperature %></p>
+              <%= render "posts/metric", title: "Sea Temperature", metric: post.sea_temperature, icon: "thermometer.png" %>
             </div>
           </div>
         </div>
@@ -99,8 +77,23 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <p class="card-title mb-0"><strong>Tide</strong></p>
-              <p class="card-text"><%= post.tide %></p>
+              <%= render "posts/metric", title: "Wind Speed", metric: post.wind, icon: "windspeed.png" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+           <div class="card-body py-2 px-3">
+              <%= render "posts/metric", title: "Wind Direction", metric: post.wind_direction, icon: "winddirection.png" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body py-2 px-3">
+              <%= render "posts/metric", title: "Tide", metric: post.tide, icon: "tide.png" %>
             </div>
           </div>
         </div>
