@@ -22,7 +22,7 @@ class Post < ApplicationRecord
       client = OpenAI::Client.new
       chatgpt_response = client.chat(parameters: {
         model: "gpt-4o",
-        messages: [{ role: "user", content: "In 140 characters or less explain how the following #{self.surfspot.location} #{tide} #{ripple} #{wave_period} #{wave_direction} #{wind} #{wind_direction} #{sea_temperature} conditions shape the surfing experience without using numbers."}]
+        messages: [{ role: "user", content: "In 140 characters or less explain how the following #{surfspot.location} #{tide} #{ripple} #{wave_period} #{wave_direction} #{wind} #{wind_direction} #{sea_temperature} conditions shape the surfing experience without using numbers."}]
       })
 
       new_content =  chatgpt_response["choices"][0]["message"]["content"]
@@ -50,7 +50,6 @@ class Post < ApplicationRecord
 
     update!(surf_level: level)
   end
-
 
   private
 
