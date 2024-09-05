@@ -35,32 +35,16 @@
       </div>
       <div class="row mb-3">
         <div class="col-6">
-          <div class="card w-100">
+          <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "ripple.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Ripple</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.ripple %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Ripple", metric: post.ripple, icon: "ripple.png" %>
             </div>
           </div>
         </div>
         <div class="col-6">
-          <div class="card w-100">
+          <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-2 d-flex justify-content-center">
-                  <%= image_tag "wavedirection.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Direction</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.wave_direction %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Direction", metric: post.wave_direction, icon: "wavedirection.png" %>
             </div>
           </div>
         </div>
@@ -69,30 +53,14 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "waveperiod.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Period</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.wave_period %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Wave Period", metric: post.wave_period, icon: "waveperiod.png" %>
             </div>
           </div>
         </div>
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "thermometer.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Temp</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.sea_temperature %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Sea Temperature", metric: post.sea_temperature, icon: "thermometer.png" %>
             </div>
           </div>
         </div>
@@ -101,30 +69,14 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "windspeed.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Wind</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.wind %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Wind Speed", metric: post.wind, icon: "windspeed.png" %>
             </div>
           </div>
         </div>
         <div class="col-6">
           <div class="card">
-            <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "winddirection.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Direction</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.wind_direction %></p>
-                </div>
-              </div>
+           <div class="card-body py-2 px-3">
+              <%= render "posts/metric", title: "Wind Direction", metric: post.wind_direction, icon: "winddirection.png" %>
             </div>
           </div>
         </div>
@@ -133,37 +85,10 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "tide.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Tide</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.tide %></p>
-                </div>
-              </div>
+              <%= render "posts/metric", title: "Tide", metric: post.tide, icon: "tide.png" %>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-      <div class="row mb-3">
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body py-2 px-3">
-              <div class="row align-items-center">
-                <div class="col-3 d-flex justify-content-center">
-                  <%= image_tag "winddirection.png", class: "icon"%>
-                </div>
-                <div class="col-9">
-                  <p class="card-title mx-3 mb-0 text-center"><strong>Direction</strong></p>
-                  <p class="card-text mx-3 text-center"><%= post.wind_direction %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
