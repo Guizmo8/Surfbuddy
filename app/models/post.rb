@@ -35,15 +35,27 @@ class Post < ApplicationRecord
   end
 
   def post_surf_level
-    ripple_height = self.ripple.chop.to_f
+    ripple_height = ripple.chop.to_f
     wind = self.wind.chop.to_f
     wave_period = self.wave_period.chop.to_f
-    sea_temp = self.sea_temperature.chop.to_f
+    sea_temp = sea_temperature.chop.to_f
 
-    tide_str = self.tide.gsub('h', '')
+    tide_str = tide.gsub('h', '')
     tide_time = Time.strptime(tide_str, "%H.%M").strftime('%H%M').to_i
 
-    wind_factor = case wind
+    factors = [wind_factor(wind), ripple_factor(ripple_height), wave_period_factor(wave_period), sea_temp_factor(sea_temp),
+               tide_factor(tide_time)]
+
+    level = factors.group_by(&:itself).values.max_by(&:size).first
+
+    update!(surf_level: level)
+  end
+
+
+  private
+
+  def wind_factor(wind)
+    case wind
     when 0..16
       "Beginner"
     when 17..24
@@ -51,8 +63,10 @@ class Post < ApplicationRecord
     else
       "Advanced"
     end
+  end
 
-    ripple_factor = case ripple_height
+  def ripple_factor(ripple_height)
+    case ripple_height
     when 0..1.0
       "Beginner"
     when 1.1..2.0
@@ -60,8 +74,10 @@ class Post < ApplicationRecord
     else
       "Advanced"
     end
+  end
 
-    wave_period_factor = case wave_period
+  def wave_period_factor(wave_period)
+    case wave_period
     when 0..8
       "Beginner"
     when 8.1..12
@@ -69,8 +85,10 @@ class Post < ApplicationRecord
     else
       "Advanced"
     end
+  end
 
-    sea_temp_factor = case sea_temp
+  def sea_temp_factor(sea_temp)
+    case sea_temp
     when 20..25
       "Beginner"
     when 15..19
@@ -78,30 +96,18 @@ class Post < ApplicationRecord
     else
       "Advanced"
     end
+  end
 
-    tide_factor = case tide_time
+  def tide_factor(tide_time)
+    case tide_time
     when 500..800
       "Beginner"
     when 800..1600
       "Intermediate"
-    when 1600..2000
-      "Advanced"
     else
       "Advanced"
     end
-
-
-
-    factors = [wind_factor, ripple_factor, wave_period_factor, sea_temp_factor, tide_factor]
-
-    level = factors.group_by(&:itself).values.max_by(&:size).first
-
-    update!(surf_level: level)
-
   end
-
-
-  private
 
 
   def create_alert
