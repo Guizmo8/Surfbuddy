@@ -13,6 +13,8 @@ class Alert < ApplicationRecord
   private
 
   def send_alert
+    return unless Rails.env == "production"
+    
     return unless user.phone_number == "+33665151713"
 
     client = Twilio::REST::Client.new(ENV.fetch('TWILIO_ACCOUNT_SID'), ENV.fetch('TWILIO_TOKEN'))

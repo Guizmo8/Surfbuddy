@@ -55,7 +55,7 @@
                     <p class="m-0" style="color: #00808B; font-size: 0.875em">at: <%= favourite.posts.last.created_at.strftime("%H:%M") %></p>
                     <h5 class="mt-0"><%= favourite.surfspot.name %></h5>
                     <p class="mb-0" style="color: #00808B; font-size: 1.875em"> <%= favourite.posts.last.ripple %> </p>
-                    <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level"><%= favourite.posts.last.surf_level %></span> surfer</p>
+                    <p class="mb-0 py-2" style="color: #ABABAB; font-size: 0.875em"> Good for <span class="level level-<%= favourite.posts.last.surf_level.downcase %>"><%= favourite.posts.last.surf_level %></span> surfer</p>
                   </div>
                 </div>
               <% end %>
@@ -94,7 +94,7 @@
 
 
   <div class="py-3">
-    <% @posts.first(3).each do |post| %>
+    <% @posts.each do |post| %>
       <%= render 'posts/post', post: post %>
     <% end %>
   </div>

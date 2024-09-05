@@ -31,4 +31,8 @@ class User < ApplicationRecord
     # gets all the posts from favourite surfspots ordered by time created
     favourites.map(&:posts).flatten.sort_by(&:created_at).reverse
   end
+  
+  def unread_alerts
+    alerts.where("created_at > ?", check_alerts_at).count
+  end
 end
