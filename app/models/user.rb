@@ -21,4 +21,14 @@ class User < ApplicationRecord
 
     current_time >= start_time && current_time <= end_time
   end
+
+  def alert_posts
+    # gets all the posts that generate an alert
+    alerts.map(&:post)
+  end
+
+  def favourite_posts
+    # gets all the posts from favourite surfspots ordered by time created
+    favourites.map(&:posts).flatten.sort_by(&:created_at).reverse
+  end
 end

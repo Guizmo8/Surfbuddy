@@ -5,12 +5,38 @@
   <% else %>
     <h2 class="text-center pt-5 pb-4">ALERTS</h2>
     <div class="row">
-      <% @alerts.reverse_each do |alert| %>
-          <div class="col-12 col-lg-4">
-            <%= render "posts/post", post: alert.post %>
-          </div>
-      <%end %>
+
+      <% @posts.reverse_each do |post| %>
+
+        <div class="col-12 col-lg-4">
+            <div class="d-flex">
+              <div class="card card-your-spots-home mt-3">
+                <div class="card position-relative">
+
+                  <%= link_to surfspot_path(post.surfspot_id) do %>
+                    <img src="<%= post.surfspot.image_url %>" class="custom-card-img">
+                    <div class="text-overlay">
+                      <p class="text-white"><small><%= post.surfspot.name %></small></p>
+                    </div>
+                  <% end %>
+
+                </div>
+                <div class="card-body pb-1">
+                  <h6 class="mt-0 ms-2">Recent conditions:</h6>
+                    <%= render 'posts/post', post: post %>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+      <% end %>
+
+
     </div>
+
+
+
   <% end %>
 
 </div>

@@ -30,5 +30,7 @@ class FavouritesController < ApplicationController
 
   def my_feed
     @favourites = Favourite.where(user: current_user)
+    # @posts = Post.where(user: current_user)
+    @posts = current_user.favourite_posts
   end
 end
