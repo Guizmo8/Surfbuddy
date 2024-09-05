@@ -5,12 +5,18 @@
   <% else %>
     <h2 class="text-center pt-5 pb-4">ALERTS</h2>
     <div class="row">
-      <% @alerts.reverse_each do |alert| %>
-          <div class="col-12 col-lg-4">
-            <%= render "posts/post", post: alert.post %>
-          </div>
-      <%end %>
+
+      <% @posts.reverse_each do |post| %>
+        <div class="col-12 col-lg-4">
+          <%= render 'posts/alertpost', post: post %>
+        </div>
+      <% end %>
+
+
     </div>
+
+
+
   <% end %>
 
 </div>

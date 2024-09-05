@@ -3,7 +3,6 @@ class Beaches
     { beach_slug: "praia-de-carcavelos", cam_slug: "praia-de-carcavelos" },
     { beach_slug: "praia-de-matosinhos", cam_slug: "praia-de-matosinhos" },
     { beach_slug: "praia-da-baia", cam_slug: "praia-de-espinho" },
-    { beach_slug: "praia-da-vila", cam_slug: "praia-da-nazare" },
     { beach_slug: "praia-grande", cam_slug: "praia-grande" },
     { beach_slug: "praia-de-supertubos", cam_slug: "peniche-supertubos" },
     { beach_slug: "praia-do-guincho", cam_slug: "praia-do-guincho" },

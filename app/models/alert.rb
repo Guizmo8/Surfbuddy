@@ -18,7 +18,7 @@ class Alert < ApplicationRecord
     client = Twilio::REST::Client.new(ENV.fetch('TWILIO_ACCOUNT_SID'), ENV.fetch('TWILIO_TOKEN'))
 
     client.messages.create(
-      from: Alert::PHONE_NUMBER,
+      from:Surfbuddy,
       to: user.phone_number, # Replace with the user phone number
       body: "#{post.surfspot.name} - #{post.content}" # Content of the sms sent = alerts
     )

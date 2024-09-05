@@ -109,7 +109,6 @@ class Post < ApplicationRecord
     end
   end
 
-
   def create_alert
     # We grab the favourites with alerts ON that belong to the surfspot of the post that has being created
     # Then we iterate over it

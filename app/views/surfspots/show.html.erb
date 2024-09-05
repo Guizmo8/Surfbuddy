@@ -23,11 +23,11 @@
 
         <% if @user.favourites.where(surfspot_id: @surfspot).first %> <%# if its a favourite %>
           <% if @user.favourites.where(surfspot_id: @surfspot).first.alert == true %>
-            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button text-nowrap' do %>
-            <i class="fa-solid fa-bell "></i> <small>ON</small>
+            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button text-nowrap ms-1' do %>
+            <i class="fa-solid fa-bell"></i> <small>ON</small>
             <% end %>
           <% else %>
-            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button-secondary text-nowrap' do %>
+            <%= button_to surfspot_change_fav_alert_pref_path(@surfspot), method: :patch, class: 'button-secondary text-nowrap ms-1' do %>
               <i class="fa-solid fa-bell"></i> <small>OFF</small>
             <% end %>
           <% end %>
@@ -51,7 +51,7 @@
       <p class="pb-4 pt-3 text-center"><em>Sorry, no available Live Conditions at the moment...</em></p>
     <% else %>
       <h2 class="pb-4 pt-3 text-center">Live Conditions</h2>
-      <% @surfspot.posts.each do |post|  %>
+      <% @surfspot.posts.reverse_each do |post|  %>
         <div class="col-12 col-lg-4">
           <%= render "posts/post", post: post %>
         </div>

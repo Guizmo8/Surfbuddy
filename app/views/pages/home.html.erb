@@ -1,19 +1,34 @@
  <div class="container">
   <%= render "shared/searchform" %>
+  <% if user_signed_in? && current_user.favourites.any? %>
+    <div class="surfspot-wrapper">
+      <div class="card card-your-spots-home mt-3 mx-auto" class="justify-content: center;">
+        <img src="<%= @rand_spot.surfspot.image_url %>" class="card-img-top custom-card-img" alt="<%= @rand_spot.surfspot.name %>'s photo">
+        <div class="card-body">
+          <p class= "m-0"> 15 min ago </p>
+          <h5 class="beach-title mt-0"> <%= @rand_spot.surfspot.name %></h5>
 
-  <div class="surfspot-wrapper">
-    <div class="card card-your-spots-home mt-3 mx-auto" class="justify-content: center;">
-      <img src="<%= @surfspot1.image_url %>" class="card-img-top custom-card-img" alt="<%= @surfspot1.name %>'s photo">
-      <div class="card-body">
-        <p class= "m-0"> 15 min ago </p>
-        <h5 class="beach-title mt-0"> <%= @surfspot1.name %></h5>
-
-        <p class="card-text"><small class="text-body-secondary"><%= @surfspot1.location[0] %><%= @surfspot1.location[1..-1].downcase %></small></p>
-        <div class="button text-nowrap w-50 text-center">Check beach!</div>
+          <p class="card-text"><small class="text-body-secondary"><%= @rand_spot.surfspot.location[0] %><%= @rand_spot.surfspot.location[1..-1].downcase %></small></p>
+          <%= link_to surfspot_path(@rand_spot.surfspot_id) do %>
+            <div class="button text-nowrap w-50 text-center">Check beach!</div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="surfspot-wrapper">
+      <div class="card card-your-spots-home mt-3 mx-auto" class="justify-content: center;">
+        <img src="<%= @surfspot1.image_url %>" class="card-img-top custom-card-img" alt="<%= @surfspot1.name %>'s photo">
+        <div class="card-body">
+          <p class= "m-0"> 15 min ago </p>
+          <h5 class="beach-title mt-0"> <%= @surfspot1.name %></h5>
 
+          <p class="card-text"><small class="text-body-secondary"><%= @surfspot1.location[0] %><%= @surfspot1.location[1..-1].downcase %></small></p>
+          <div class="button text-nowrap w-50 text-center">Check beach!</div>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <hr>
 
   <div>
