@@ -36,11 +36,11 @@ class Post < ApplicationRecord
 
   def post_surf_level
     ripple_height = self.ripple.chop.to_f
-    wind = self.wind.chop.to_f
-    wave_period = self.wave_period.chop.to_f
-    sea_temp = self.sea_temperature.chop.to_f
+    wind = self.wind&.chop.to_f
+    wave_period = self.wave_period&.chop.to_f
+    sea_temp = self.sea_temperature&.chop.to_f
 
-    tide_str = self.tide.gsub('h', '')
+    tide_str = self.tide&.gsub('h', '')
     tide_time = Time.strptime(tide_str, "%H.%M").strftime('%H%M').to_i
 
     wind_factor = case wind
@@ -90,19 +90,14 @@ class Post < ApplicationRecord
       "Advanced"
     end
 
-
-
     factors = [wind_factor, ripple_factor, wave_period_factor, sea_temp_factor, tide_factor]
 
     level = factors.group_by(&:itself).values.max_by(&:size).first
 
     update!(surf_level: level)
-
   end
 
-
   private
-
 
   def create_alert
     # We grab the favourites with alerts ON that belong to the surfspot of the post that has being created
