@@ -22,10 +22,7 @@ class User < ApplicationRecord
     current_time >= start_time && current_time <= end_time
   end
 
-  def checks_alerts_at
-    
+  def unread_alerts
+    alerts.where("created_at > ?", check_alerts_at).count
   end
-
-
-
 end
