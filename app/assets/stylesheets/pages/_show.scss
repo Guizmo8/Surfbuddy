@@ -9,6 +9,18 @@
   border-color: $blue !important;
 }
 
+.border-beginner  {
+  border-color: #8CBC00 !important;
+}
+
+.border-intermediate {
+  border-color: #ffae00 !important;
+}
+
+.border-advanced {
+  border-color: #E00072 !important;
+}
+
 @media (min-width: 576px) {
   .img-responsive {
       width: 80%;
