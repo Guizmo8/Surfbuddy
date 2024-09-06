@@ -38,7 +38,8 @@ class PostScraper
 
     data = JSON.parse(response)
 
-    time_analysed = data['Finish_Date']['0'] - data['Start_Date']['0']
+    # The difference of these dates is in miliseconds, so we need to divide it by 1000 to have a value in seconds
+    time_analysed = (data['Finish_Date']['0'] - data['Start_Date']['0']) / 1000
     wave_period = (data['N_of_Waves']['0'] / time_analysed).round
 
     @post.assign_attributes(wave_period: "#{wave_period}s")
