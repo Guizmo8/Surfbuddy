@@ -38,7 +38,7 @@ class PostScraper
 
     data = JSON.parse(response)
 
-    time_analysed = data['Finish_Time']['0'] - data['Start_Time']['0']
+    time_analysed = data['Finish_Date']['0'] - data['Start_Date']['0']
     wave_period = (data['N_of_Waves']['0'] / time_analysed).round
 
     @post.assign_attributes(wave_period: "#{wave_period}s")
